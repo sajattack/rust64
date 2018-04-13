@@ -121,7 +121,7 @@ impl IO {
         self.process_joystick(window.is_key_down(Key::NumPad7), Key::NumPad7, cia1);
         self.process_joystick(window.is_key_down(Key::NumPad8), Key::NumPad8, cia1);
         self.process_joystick(window.is_key_down(Key::NumPad9), Key::NumPad9, cia1);
-        self.process_joystick(window.is_key_down(Key::RightCtrl), Key::RightCtrl, cia1);
+        self.process_joystick(window.is_key_down(Key::NumPad0), Key::NumPad0, cia1);
 
         // helper keys
         // toggle between joystick ports 1 and 2
@@ -239,7 +239,7 @@ impl IO {
             // up-right
             Key::NumPad9 => { self.joystick_state[8] = true; joystate = (joystate | 0x06) & !0x09; },
             // fire button
-            Key::RightCtrl => { self.joystick_state[9] = true; joystate &= !0x10; },
+            Key::NumPad0 => { self.joystick_state[9] = true; joystate &= !0x10; },
             _ => (),
         }
 
@@ -279,7 +279,7 @@ impl IO {
             // up-right
             Key::NumPad9 => if self.joystick_state[8] { joystate |= 0x09; self.joystick_state[8] = false; },
             // fire button
-            Key::RightCtrl => if self.joystick_state[9] { joystate |= 0x10; self.joystick_state[9] = false; },
+            Key::NumPad0 => if self.joystick_state[9] { joystate |= 0x10; self.joystick_state[9] = false; },
             _ => (),
         }
 
