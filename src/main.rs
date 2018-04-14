@@ -23,6 +23,9 @@ fn main() {
         else if args[i] == "x2" {
             window_scale = Scale::X2;
         }
+        else if args[i] == "x4" {
+            window_scale = Scale::X4;
+        }
         else {
             prg_to_load = args[i].clone();
         }
